@@ -216,7 +216,7 @@ class Secuure_GUI:
             
             else:
                 print ("Adding user '%s' with password '%s'" % (user_str, pass_str))
-                insertToUserTable("fname", "lname", user_str, pass_str)
+                addToUserTable(user_str, pass_str, "fname", "lname")
 
             self.userAccounts[user_str] = pass_str # remove after backend
                                                    #integration
