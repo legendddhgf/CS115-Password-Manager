@@ -5,7 +5,7 @@ userDict = {}
 #initalizes database if table doesn't already exist
 def addToUserTable(user, pw, fname, lname):
     (conn, cursor) = createCon('cs115','insecuurity')
-    print(user, pw)
+    userDict[user] = pw
     try:
         create = ("""CREATE USER %s IDENTIFIED BY %s""")
         cursor.execute(create, user, pw)
@@ -64,8 +64,6 @@ def insertToUserTable(fname,lname, user):
     max_id = getUserIdNum()
 
     print(max_id)
-    if (user, max_id) in userDict.items() is None:
-        userDict[user] = max_id # assigns a global table of matching id names to account names
 
     query = ("""SELECT username FROM users""")       #
     cursor.execute(query)                           #
@@ -80,15 +78,10 @@ def insertToUserTable(fname,lname, user):
 
 #Iterates over the database and looks for login and login_pw, if they match, returns true, otherwise false.
 def verMasterLogin(login, login_pw):
-    (conn, cursor) = createCon('cs115', 'insecuurity')
-    query = ("""SELECT user,password FROM users""") #query to select all user/pw from table
-    cursor.execute(query)
-
-    for u, p in cursor:
-        if u.lower() == login.lower() and login_pw.lower() == login_pw.lower(): #if they match return true
-            conn.close()
+    for i in userDict:
+        print (i, userDict[i])
+        if i.lower() == login.lower() and userDict[i].lower() == login_pw:
             return True
-    conn.close()
     return False
 
 #Creates connection to local MySQL database
@@ -148,8 +141,9 @@ def removeEntry(username, pw, website, notes):
 #      Testing      #
 #####################
 
+
 addToUserTable('jking','root', 'John', 'King')
-getUserIdForData('jking')
+print(verMasterLogin('jking','root'))
 print("Before printing\n")
 addPassForWebsite("jking", "mypass3!!!21test", "gmail", "last")
 addPassForWebsite("jking", "mypass321test", "yahoo", "last")
