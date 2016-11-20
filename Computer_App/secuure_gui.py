@@ -107,10 +107,10 @@ class Secuure_GUI:
             #Call to login function in storage.py
             login_valid = verMasterLogin(user_str, pass_str)
 
-            if (len(user_str) == 0):
-                user_str = "<EMPTY>"
-            if (len(pass_str) == 0):
-                pass_str = "<EMPTY>"
+            if (len(user_str) == 0 or len(pass_str) == 0):
+                messagebox.showerror("Invalid Combination",
+                        "Neither User nor Password can be empty")
+                return
         
             info_str = "Your username is %s\n" % \
                 (user_str) + "Your password is %s\n" % (pass_str)
@@ -126,6 +126,9 @@ class Secuure_GUI:
 
             if (login_valid):
                 self.list_account_info(user_str)
+            else:
+                messagebox.showerror("Invalid Combination",
+                    "User/Pass combo doesn't exist")
         
         def toggle_fscreen(self, event):
             self.fscreen_en = not self.fscreen_en
@@ -142,7 +145,8 @@ class Secuure_GUI:
             return
         
         def map_list_account_info_key(self, event):
-            self.window_info.destroy()
+            if (len(event.char) == 1 and ord(event.char) == 27):
+                self.window_info.destroy()
 
         def list_account_info(self, user_str):
             self.window_info = tkinter.Toplevel()
@@ -162,9 +166,9 @@ class Secuure_GUI:
             data = getPasswordsForUser(user_str)
             for info in data:
                 label_usernames.append(tkinter.Label(self.window_info, text =
-                    info[1] + " : "))
+                    info[0] + " : ", background = self.bcolor))
                 label_passwords.append(tkinter.Label(self.window_info, text =
-                    info[2]))
+                    info[1], background = self.bcolor))
             """"""
 
             """ old """
@@ -200,6 +204,13 @@ class Secuure_GUI:
             button_remove.grid(row = 1, column = space_start + num_spaces)
 
         def submit_account_registration(self):
+
+            if (len(self.field_username.get()) == 0 or
+                    len(self.field_pass.get()) == 0):
+                messagebox.showerror("Account Registration Error",
+                        "No fields can be empty")
+                return
+
             if (self.field_confpass.get() != self.field_pass.get()):
                 messagebox.showerror("Account Registration Error", "Passwords" +
                         " do not match")
@@ -220,6 +231,8 @@ class Secuure_GUI:
 
             self.userAccounts[user_str] = pass_str # remove after backend
                                                    #integration
+
+            self.reg_win.destroy()
 
             
 
@@ -270,17 +283,63 @@ class Secuure_GUI:
 
             button_submit.grid(row = 6, column = 1)
 
+        def key_add_window(self, event):
+            if (len(event.char) == 1 and ord(event.char) == 27):
+                self.window_add_acc.destroy()
+
+        def submit_account_add(self):
+            print("congrats")
+
         def add_account_window(self):
-            window_add_acc = tkinter.Toplevel()
-            window_add_acc.configure(background = self.bcolor)
-            window_add_acc.geometry(("%dx%d") % (self.natwidth / 2,self.natheight / 2)) # start with a window
-            window_add_acc.title("Add Account")
+            self.window_add_acc = tkinter.Toplevel()
+            self.window_add_acc.configure(background = self.bcolor)
+            self.window_add_acc.geometry(("%dx%d") % (self.natwidth / 2,self.natheight / 2)) # start with a window
+            self.window_add_acc.title("Add Account")
+            self.window_add_acc.bind('<Key>', self.key_add_window)
+
+            self.label_user_website = tkinter.Label(self.window_add_acc, text = "Website",
+                    background = self.bcolor)
+            self.label_user_user = tkinter.Label(self.window_add_acc, text = "Username",
+                    background = self.bcolor)
+            self.label_user_pass = tkinter.Label(self.window_add_acc, text = "Password",
+                    background = self.bcolor)
+            self.label_user_notes = tkinter.Label(self.window_add_acc, text = "Notes",
+                    background = self.bcolor)
+
+            self.entry_user_website = tkinter.Entry(self.window_add_acc)
+            self.entry_user_user = tkinter.Entry(self.window_add_acc)
+            self.entry_user_pass = tkinter.Entry(self.window_add_acc)
+            self.entry_user_notes = tkinter.Entry(self.window_add_acc,
+                    width = 40, relief = tkinter.GROOVE)
+
+            self.button_user_add = tkinter.Button(self.window_add_acc, text = "Submit", command =
+                    self.submit_account_add)
+
+            label_blank = tkinter.Label(self.window_add_acc, text = "", background = self.bcolor)
+
+            self.label_user_website.grid(row = 0, column = 0)
+            self.label_user_user.grid(row = 1, column = 0)
+            self.label_user_pass.grid(row = 2, column = 0)
+            self.label_user_notes.grid(row = 3, column = 0)
+
+            self.entry_user_website.grid(row = 0, column = 1)
+            self.entry_user_user.grid(row = 1, column = 1)
+            self.entry_user_pass.grid(row = 2, column = 1)
+            self.entry_user_notes.grid(row = 3, column = 1)
+
+            label_blank.grid(row = 4, column = 0)
+
+            self.button_user_add.grid(row = 5, column = 1)
+
+        def key_rem_window(self, event):
+            self.window_rem_acc.destroy()
 
         def remove_account_window(self):
-            window_rem_acc = tkinter.Toplevel()
-            window_rem_acc.configure(background = self.bcolor)
-            window_rem_acc.geometry(("%dx%d") % (self.natwidth / 2,self.natheight / 2)) # start with a window
-            window_rem_acc.title("Remove Account")
+            self.window_rem_acc = tkinter.Toplevel()
+            self.window_rem_acc.configure(background = self.bcolor)
+            self.window_rem_acc.geometry(("%dx%d") % (self.natwidth / 2,self.natheight / 2)) # start with a window
+            self.window_rem_acc.title("Remove Account")
+            self.window_rem_acc.bind('<Key>', self.key_rem_window)
 
         def donothing(self):
             return
