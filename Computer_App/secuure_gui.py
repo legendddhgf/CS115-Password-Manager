@@ -283,17 +283,63 @@ class Secuure_GUI:
 
             button_submit.grid(row = 6, column = 1)
 
+        def key_add_window(self, event):
+            if (len(event.char) == 1 and ord(event.char) == 27):
+                self.window_add_acc.destroy()
+
+        def submit_account_add(self):
+            print("congrats")
+
         def add_account_window(self):
-            window_add_acc = tkinter.Toplevel()
-            window_add_acc.configure(background = self.bcolor)
-            window_add_acc.geometry(("%dx%d") % (self.natwidth / 2,self.natheight / 2)) # start with a window
-            window_add_acc.title("Add Account")
+            self.window_add_acc = tkinter.Toplevel()
+            self.window_add_acc.configure(background = self.bcolor)
+            self.window_add_acc.geometry(("%dx%d") % (self.natwidth / 2,self.natheight / 2)) # start with a window
+            self.window_add_acc.title("Add Account")
+            self.window_add_acc.bind('<Key>', self.key_add_window)
+
+            self.label_user_website = tkinter.Label(self.window_add_acc, text = "Website",
+                    background = self.bcolor)
+            self.label_user_user = tkinter.Label(self.window_add_acc, text = "Username",
+                    background = self.bcolor)
+            self.label_user_pass = tkinter.Label(self.window_add_acc, text = "Password",
+                    background = self.bcolor)
+            self.label_user_notes = tkinter.Label(self.window_add_acc, text = "Notes",
+                    background = self.bcolor)
+
+            self.entry_user_website = tkinter.Entry(self.window_add_acc)
+            self.entry_user_user = tkinter.Entry(self.window_add_acc)
+            self.entry_user_pass = tkinter.Entry(self.window_add_acc)
+            self.entry_user_notes = tkinter.Entry(self.window_add_acc,
+                    width = 40, relief = tkinter.GROOVE)
+
+            self.button_user_add = tkinter.Button(self.window_add_acc, text = "Submit", command =
+                    self.submit_account_add)
+
+            label_blank = tkinter.Label(self.window_add_acc, text = "", background = self.bcolor)
+
+            self.label_user_website.grid(row = 0, column = 0)
+            self.label_user_user.grid(row = 1, column = 0)
+            self.label_user_pass.grid(row = 2, column = 0)
+            self.label_user_notes.grid(row = 3, column = 0)
+
+            self.entry_user_website.grid(row = 0, column = 1)
+            self.entry_user_user.grid(row = 1, column = 1)
+            self.entry_user_pass.grid(row = 2, column = 1)
+            self.entry_user_notes.grid(row = 3, column = 1)
+
+            label_blank.grid(row = 4, column = 0)
+
+            self.button_user_add.grid(row = 5, column = 1)
+
+        def key_rem_window(self, event):
+            self.window_rem_acc.destroy()
 
         def remove_account_window(self):
-            window_rem_acc = tkinter.Toplevel()
-            window_rem_acc.configure(background = self.bcolor)
-            window_rem_acc.geometry(("%dx%d") % (self.natwidth / 2,self.natheight / 2)) # start with a window
-            window_rem_acc.title("Remove Account")
+            self.window_rem_acc = tkinter.Toplevel()
+            self.window_rem_acc.configure(background = self.bcolor)
+            self.window_rem_acc.geometry(("%dx%d") % (self.natwidth / 2,self.natheight / 2)) # start with a window
+            self.window_rem_acc.title("Remove Account")
+            self.window_rem_acc.bind('<Key>', self.key_rem_window)
 
         def donothing(self):
             return
