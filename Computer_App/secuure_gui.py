@@ -107,10 +107,10 @@ class Secuure_GUI:
             #Call to login function in storage.py
             login_valid = verMasterLogin(user_str, pass_str)
 
-            if (len(user_str) == 0):
-                user_str = "<EMPTY>"
-            if (len(pass_str) == 0):
-                pass_str = "<EMPTY>"
+            if (len(user_str) == 0 or len(pass_str) == 0):
+                messagebox.showerror("Invalid Combination",
+                        "Neither User nor Password can be empty")
+                return
         
             info_str = "Your username is %s\n" % \
                 (user_str) + "Your password is %s\n" % (pass_str)
@@ -126,6 +126,9 @@ class Secuure_GUI:
 
             if (login_valid):
                 self.list_account_info(user_str)
+            else:
+                messagebox.showerror("Invalid Combination",
+                    "User/Pass combo doesn't exist")
         
         def toggle_fscreen(self, event):
             self.fscreen_en = not self.fscreen_en
@@ -142,7 +145,8 @@ class Secuure_GUI:
             return
         
         def map_list_account_info_key(self, event):
-            self.window_info.destroy()
+            if (len(event.char) == 1 and ord(event.char) == 27):
+                self.window_info.destroy()
 
         def list_account_info(self, user_str):
             self.window_info = tkinter.Toplevel()
@@ -162,9 +166,9 @@ class Secuure_GUI:
             data = getPasswordsForUser(user_str)
             for info in data:
                 label_usernames.append(tkinter.Label(self.window_info, text =
-                    info[1] + " : "))
+                    info[0] + " : ", background = self.bcolor))
                 label_passwords.append(tkinter.Label(self.window_info, text =
-                    info[2]))
+                    info[1], background = self.bcolor))
             """"""
 
             """ old """
@@ -200,6 +204,13 @@ class Secuure_GUI:
             button_remove.grid(row = 1, column = space_start + num_spaces)
 
         def submit_account_registration(self):
+
+            if (len(self.field_username.get()) == 0 or
+                    len(self.field_pass.get()) == 0):
+                messagebox.showerror("Account Registration Error",
+                        "No fields can be empty")
+                return
+
             if (self.field_confpass.get() != self.field_pass.get()):
                 messagebox.showerror("Account Registration Error", "Passwords" +
                         " do not match")
@@ -220,6 +231,8 @@ class Secuure_GUI:
 
             self.userAccounts[user_str] = pass_str # remove after backend
                                                    #integration
+
+            self.reg_win.destroy()
 
             
 
