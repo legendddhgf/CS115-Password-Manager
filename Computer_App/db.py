@@ -124,7 +124,7 @@ def getPasswordsForUser(accountName):
         if accountName.lower() == a.lower():
             data.append((a, p, w, n))
     conn.close()
-    return data 
+    return data
 
 
 #Removes entry from the table, all values have to match
@@ -143,11 +143,11 @@ def removeEntry(username, pw, website, notes):
 #####################
 
 
-addToUserTable('jking','root', 'John', 'King')
+addToUserTable('joscking','root', 'John', 'King')
 print(verMasterLogin('jking','root'))
 print("Before printing\n")
-addPassForWebsite("jking", "mypass3!!!21test", "gmail", "last")
-addPassForWebsite("jking", "mypass321test", "yahoo", "last")
+addPassForWebsite("joscking", "mypass3!!!21test", "gmail", "last")
+addPassForWebsite("joscking", "mypass321test", "yahoo", "last")
 getPasswordsForUser("jking")
 print("After printing\n")
 removeEntry("jking", "mypass3!!!21test", "gmail", "last")
