@@ -117,13 +117,14 @@ def addPassForWebsite(username, pw, website, notes):
 #Prints passwords for a specified user
 def getPasswordsForUser(accountName):
     (conn, cursor) = createCon('cs115','insecuurity')
-
+    data = []
     query=("""SELECT account, password, website, notes FROM DATA WHERE userid=%s""" %getUserIdForData(accountName))
     cursor.execute(query)
     for a, p, w, n in cursor:
         if accountName.lower() == a.lower():
-            print(a, p, w, n)
+            data.append((a, p, w, n))
     conn.close()
+    return data 
 
 
 #Removes entry from the table, all values have to match
