@@ -7,9 +7,9 @@ def addToUserTable(user, pw, fname, lname):
     (conn, cursor) = createCon('cs115','insecuurity')
     userDict[user] = pw
     try:
-        create = ("""CREATE USER %s IDENTIFIED BY %s""")
+        create = ("CREATE USER %s IDENTIFIED BY %s")
         cursor.execute(create, user, pw)
-        permissions = ("""GRANT SELECT,DELETE,INSERT,UPDATE on secuure.data to %s identified by %s""")
+        permissions = ("GRANT SELECT,DELETE,INSERT,UPDATE on secuure.data to %s identified by %s")
         cursor.execute(permissions, user, pw)
         conn.commit()
     except mysql.connector.Error as e:
