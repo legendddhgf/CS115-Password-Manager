@@ -63,8 +63,7 @@ def genPass(length, specChars, upperCase, numbers):
     main_arr = genArrAll(specChars, upperCase, numbers)  # generates arrays based on user input
     while (True):
         if (len(ans) == length):  # If we have a fully generated password, check to see if we want to return it
-            if (
-                        upper_count + num_count + lower_count + spec_count) != total_count:  # Check character counters, if true, reset password and counters and re-loop
+            if (upper_count + num_count + lower_count + spec_count) != total_count:  # Check character counters, if true, reset password and counters and re-loop
                 ans = ""
                 (upper_count, num_count, lower_count, spec_count) = (0, 0, 0, 0)
                 continue
