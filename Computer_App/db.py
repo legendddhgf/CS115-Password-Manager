@@ -1,16 +1,13 @@
 import mysql.connector
 
-userDict = {}
-
 #initalizes database if table doesn't already exist
 def addToUserTable(user, pw, fname, lname):
     (conn, cursor) = createCon('cs115','insecuurity')
-    userDict[user] = pw
     try:
-        create = ("CREATE USER %s IDENTIFIED BY %s")
-        cursor.execute(create, user, pw)
-        permissions = ("GRANT SELECT,DELETE,INSERT,UPDATE on secuure.data to %s identified by %s")
-        cursor.execute(permissions, user, pw)
+        create = ("CREATE USER '%s' IDENTIFIED BY '%s'" %(user, pw))
+        cursor.execute(create)
+        permissions = ("GRANT SELECT,DELETE,INSERT,UPDATE ON SECUURE.DATA TO '%s' IDENTIFIED BY '%s'" %(user, pw) )
+        cursor.execute(permissions)
         conn.commit()
     except mysql.connector.Error as e:
         print ("User already exists")
@@ -78,23 +75,24 @@ def insertToUserTable(fname,lname, user):
 
 #Iterates over the database and looks for login and login_pw, if they match, returns true, otherwise false.
 def verMasterLogin(login, login_pw):
-    for i in userDict:
-        print (i, userDict[i])
-        if i.lower() == login.lower() and userDict[i].lower() == login_pw:
-            return True
-    return False
+    if createCon(login, login_pw) is not None:
+        (conn, cursor) = createCon(login, login_pw)
+        global logged_user
+        logged_user = login
+        global logged_pw
+        logged_pw = login_pw
+        conn.close()
+        return True
+    else:
+       return False
 
-#Creates connection to local MySQL database
-# ***************REPLACES verMasterLogin******************
-#  Passwords for accounts are no longer stored on the db
+#Creates connection to local MySQL database#  Passwords for accounts are no longer stored on the db
 def createCon(user, pw):
     try:
         conn = mysql.connector.connect(user=user, password=pw, host = '98.234.141.183', database='secuure') #isaak: 98.234.141.183
         cursor = conn.cursor()
         return (conn, cursor)
     except mysql.connector.Error as e:
-        print("Incorrect user/pw or connection error")
-        exit()
         return
     # note the above host name is my local one: external IP is 98.234.141.183
 
@@ -102,7 +100,8 @@ def createCon(user, pw):
 
 #Adds a username and password for a specific website given by the user
 def addPassForWebsite(username, pw, website, notes):
-    (conn, cursor) = createCon('cs115', 'insecuurity')
+    print (logged_user, logged_pw)
+    (conn, cursor) = createCon(logged_user, logged_pw)
     query = ("""SELECT account, website FROM data """)
     cursor.execute(query)
     for u, w in cursor:
@@ -116,7 +115,7 @@ def addPassForWebsite(username, pw, website, notes):
 
 #Prints passwords for a specified user
 def getPasswordsForUser(accountName):
-    (conn, cursor) = createCon('cs115','insecuurity')
+    (conn, cursor) = createCon(logged_user, logged_pw)
     data = []
     query=("""SELECT account, password, website, notes FROM DATA WHERE userid=%s""" %getUserIdForData(accountName))
     cursor.execute(query)
@@ -129,7 +128,7 @@ def getPasswordsForUser(accountName):
 
 #Removes entry from the table, all values have to match
 def removeEntry(username, pw, website, notes):
-    (conn, cursor) = createCon('cs115', 'insecuurity')
+    (conn, cursor) = createCon(logged_user, logged_pw)
     query = """DELETE FROM DATA WHERE userid=%s && account='%s' && website='%s' && password='%s' && notes='%s'""" %(getUserIdForData(username), username, website, pw, notes, )
 
     print (query)
@@ -142,16 +141,15 @@ def removeEntry(username, pw, website, notes):
 #      Testing      #
 #####################
 
-
-addToUserTable('joscking','root', 'John', 'King')
-print(verMasterLogin('jking','root'))
+addToUserTable('joking','root', 'John', 'King')
+print(verMasterLogin('joking','root'))
 print("Before printing\n")
-addPassForWebsite("joscking", "mypass3!!!21test", "gmail", "last")
-addPassForWebsite("joscking", "mypass321test", "yahoo", "last")
-getPasswordsForUser("jking")
+addPassForWebsite("joking", "mypass3!!!21test", "gmail", "last")
+addPassForWebsite("joking", "mypass321test", "yahoo", "last")
+getPasswordsForUser("joking")
 print("After printing\n")
-removeEntry("jking", "mypass3!!!21test", "gmail", "last")
-getPasswordsForUser("jking")
+removeEntry("joking", "mypass3!!!21test", "gmail", "last")
+getPasswordsForUser("joking")
 
 
 
