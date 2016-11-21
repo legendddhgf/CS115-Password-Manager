@@ -288,7 +288,13 @@ class Secuure_GUI:
                 self.window_add_acc.destroy()
 
         def submit_account_add(self):
-            print("congrats")
+            user_user = self.entry_user_user.get()
+            user_pass = self.entry_user_pass.get()
+            user_website = self.entry_user_website.get()
+            user_notes = self.entry_user_notes.get()
+
+            addPassForWebsite(user_user, user_pass, user_website, user_notes)
+            
 
         def add_account_window(self):
             self.window_add_acc = tkinter.Toplevel()
