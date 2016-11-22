@@ -1,5 +1,8 @@
 import mysql.connector
 
+logged_user = None
+logged_pw = None
+
 #initalizes database if table doesn't already exist
 def addToUserTable(user, pw, fname, lname):
     (conn, cursor) = createCon('cs115','insecuurity')
@@ -100,6 +103,8 @@ def createCon(user, pw):
 
 #Adds a username and password for a specific website given by the user
 def addPassForWebsite(username, pw, website, notes):
+    global logged_user
+    global logged_pw
     print (logged_user, logged_pw)
     (conn, cursor) = createCon(logged_user, logged_pw)
     query = ("""SELECT account, website FROM data """)
@@ -115,6 +120,8 @@ def addPassForWebsite(username, pw, website, notes):
 
 #Prints passwords for a specified user
 def getPasswordsForUser(accountName):
+    global logged_user
+    global logged_pw
     (conn, cursor) = createCon(logged_user, logged_pw)
     data = []
     query=("""SELECT account, password, website, notes FROM DATA WHERE userid=%s""" %getUserIdForData(accountName))
@@ -128,6 +135,8 @@ def getPasswordsForUser(accountName):
 
 #Removes entry from the table, all values have to match
 def removeEntry(username, pw, website, notes):
+    global logged_user
+    global logged_pw
     (conn, cursor) = createCon(logged_user, logged_pw)
     query = """DELETE FROM DATA WHERE userid=%s && account='%s' && website='%s' && password='%s' && notes='%s'""" %(getUserIdForData(username), username, website, pw, notes, )
 

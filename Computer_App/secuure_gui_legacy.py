@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
 #main_gui for secuure
+
+#WARNING: NOW DEPRECATED
+
 #developed by Isaak Cherdak
 
 import tkinter

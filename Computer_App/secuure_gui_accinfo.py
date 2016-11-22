@@ -10,9 +10,13 @@ from secuure_gui_accadd import secuure_accadd
 from secuure_gui_accrem import secuure_accrem
 
 window_info = None
+acc_user = None
 
 def secuure_accinfo(user_str):
+    global acc_user
     global window_info
+
+    acc_user = user_str
     bcolor = '#9ACAEE'
     window_info = tkinter.Toplevel()
 
@@ -32,7 +36,7 @@ def secuure_accinfo(user_str):
 
     """ new """
     """"""
-    data = getPasswordsForUser(user_str)
+    data = getPasswordsForUser(acc_user)
     for info in data:
         label_usernames.append(tkinter.Label(window_info, text =
             info[0] + " : ", background = bcolor))
@@ -65,12 +69,21 @@ def secuure_accinfo(user_str):
         blank_labels[i].grid(row  = 0, column = space_start + i)
 
     button_add = tkinter.Button(window_info, text = "Add Account",
-            command = secuure_accadd)
+        command = secuure_accadd)
     button_remove = tkinter.Button(window_info,
-    text = "Remove Account", command = secuure_accrem)
+        text = "Remove Account", command = secuure_accrem)
+    button_refresh = tkinter.Button(window_info,
+        text = "Refresh Info", command = refresh_info)
             
     button_add.grid(row = 0, column = space_start + num_spaces)
     button_remove.grid(row = 1, column = space_start + num_spaces)
+    button_refresh.grid(row = 2, column = space_start + num_spaces)
+
+def refresh_info():
+    global window_info
+    global acc_user
+    window_info.destroy()
+    secuure_accinfo(acc_user)
 
 def map_list_account_info_key(event):
     global window_info
