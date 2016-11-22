@@ -1,2 +1,2 @@
-python secuure_main.py
+python secuure_gui_run.py
 pause

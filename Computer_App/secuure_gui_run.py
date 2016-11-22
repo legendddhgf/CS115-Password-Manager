@@ -2,10 +2,10 @@
 
 # developed by Isaak Cherdak
 
-from secuure_gui import Secuure_GUI
+from secuure_gui_login import secuure_login
 
 
 #print "This will call the other files. Please make a front end module and back end module"
 
 
-gui = Secuure_GUI()
+secuure_login()
