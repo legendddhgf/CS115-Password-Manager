@@ -69,8 +69,7 @@ def genPass(length, specChars, upperCase, numbers):
                 continue
             else:
                 return ans  # Otherwise return
-        rand_num = random.randint(0, 10000000000000000000000000000000000000000000000) % len(
-            main_arr)  # number between 0 and main_arr length-1
+        rand_num = random.randint(0, 10000000000000000000000000000000000000000000000) % len(main_arr)  # number between 0 and main_arr length-1
         character = main_arr[rand_num]  # Random character in the array
         ans = ans + character
 
@@ -83,6 +82,3 @@ def genPass(length, specChars, upperCase, numbers):
             num_count = 1
         elif character in specCharArr:
             spec_count = 1
-
-
-print(genPass(20, 1, 1, 1))

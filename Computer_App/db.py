@@ -6,7 +6,7 @@ def addToUserTable(user, pw, fname, lname):
     try:
         create = ("CREATE USER '%s' IDENTIFIED BY '%s'" %(user, pw))
         cursor.execute(create)
-        permissions = ("GRANT SELECT,DELETE,INSERT,UPDATE ON SECUURE.DATA TO '%s' IDENTIFIED BY '%s'" %(user, pw) )
+        permissions = ("GRANT SELECT,DELETE,INSERT,UPDATE ON SECUURE.DATA TO '%s' IDENTIFIED BY '%s'" %(user, pw))
         cursor.execute(permissions)
         conn.commit()
     except mysql.connector.Error as e:
