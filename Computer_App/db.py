@@ -14,7 +14,7 @@ def addToUserTable(user, pw, fname, lname):
     except mysql.connector.Error as e:
         print ("User already exists")
         conn.close()
-        return
+        return False
     cursor.execute("""CREATE TABLE IF NOT EXISTS users(
             id  INTEGER ,
             username  text,
@@ -23,6 +23,7 @@ def addToUserTable(user, pw, fname, lname):
             )""")
     insertToUserTable(fname, lname, user)
     conn.close()
+    return True
 
 
 #gets highest ID number in the USER table
@@ -61,18 +62,16 @@ def createPassTable():
 def insertToUserTable(fname,lname, user):
     (conn, cursor) = createCon('cs115','insecuurity')
     max_id = getUserIdNum()
-
-    print(max_id)
-
     query = ("""SELECT username FROM users""")       #
     cursor.execute(query)                           #
     for u in cursor:                                # This piece checks if an account exists already
         if u[0].lower() == user.lower():           #
              print("Account name already exists")    #
-             return                                  #
+             return False                                  #
     cursor.execute("""INSERT IGNORE INTO users values (%s, %s, %s, %s)""", (max_id+1, user, fname, lname))
     conn.commit()
     conn.close()
+    return True
 
 
 #Iterates over the database and looks for login and login_pw, if they match, returns true, otherwise false.
@@ -111,10 +110,11 @@ def addPassForWebsite(username, pw, website, notes):
         if u.lower() == username.lower() and website.lower() == w.lower():
             print("Duplicate entry in table, please try again")
             conn.close
-            return
+            return False
     cursor.execute("""INSERT IGNORE INTO data values (%s, %s, %s, %s, %s)""", (getUserIdForData(logged_user), username, website, pw, notes))
     conn.commit()
     conn.close()
+    return True
 
 #Prints passwords for a specified user
 def getPasswordsForUser(accountName):
@@ -133,15 +133,20 @@ def getPasswordsForUser(accountName):
 
 #Removes entry from the table, all values have to match
 def removeEntry(username, pw, website, notes):
-    global logged_user
-    global logged_pw
-    (conn, cursor) = createCon(logged_user, logged_pw)
-    query = """DELETE FROM DATA WHERE userid=%s && account='%s' && website='%s' && password='%s' && notes='%s'""" %(getUserIdForData(username), username, website, pw, notes, )
+    try:
+        global logged_user
+        global logged_pw
+        (conn, cursor) = createCon(logged_user, logged_pw)
+        query = """DELETE FROM DATA WHERE userid=%s && account='%s' && website='%s' && password='%s' && notes='%s'""" %(getUserIdForData(username), username, website, pw, notes, )
 
-    print (query)
-    cursor.execute(query)
-    conn.commit()
-    conn.close()
+        print (query)
+        cursor.execute(query)
+        conn.commit()
+        conn.close()
+        return True
+    except mysql.connector.Error as e:
+        return False
+
 
 
 #####################
