@@ -45,7 +45,7 @@ def getUserIdForData(username):
     for i, u in cursor:
         return i
 
-
+#Creates the data table if it doesn't exist in the database
 def createPassTable():
     (conn, cursor) = createCon('cs115','insecuurity')
     cursor.execute("""CREATE TABLE IF NOT EXISTS data(
@@ -145,25 +145,3 @@ def removeEntry(username, website):
         return True
     except mysql.connector.Error as e:
         return False
-
-
-
-#####################
-#      Testing      #
-#####################
-
-addToUserTable('joking','root', 'John', 'King')
-print(verMasterLogin('joking','root'))
-print("Before printing\n")
-addPassForWebsite("joking", "mypass3!!!21test", "gmail", "last")
-addPassForWebsite("joking", "mypass321test", "yahoo", "last")
-getPasswordsForUser("joking")
-print("After printing\n")
-removeEntry("joking", "gmail")
-getPasswordsForUser("joking")
-
-
-
-
-
-
