@@ -71,13 +71,17 @@ def secuure_accinfo(user_str):
     button_add = tkinter.Button(window_info, text = "Add Account",
         command = secuure_accadd)
     button_remove = tkinter.Button(window_info,
-        text = "Remove Account", command = secuure_accrem)
+        text = "Remove Account", command = rem_but_cmd)
     button_refresh = tkinter.Button(window_info,
         text = "Refresh Info", command = refresh_info)
             
     button_add.grid(row = 0, column = space_start + num_spaces)
     button_remove.grid(row = 1, column = space_start + num_spaces)
     button_refresh.grid(row = 2, column = space_start + num_spaces)
+
+def rem_but_cmd(): # because remove needs arguments
+    global acc_user
+    secuure_accrem(acc_user)
 
 def refresh_info():
     global window_info

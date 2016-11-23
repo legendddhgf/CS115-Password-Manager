@@ -8,14 +8,20 @@ from tkinter import messagebox
 from db import *
 
 window_rem_acc = None
+acc_user = None
 
 def key_rem_window(event):
     global window_rem_acc
-    window_rem_acc.destroy()
+    if (len(event.char) != 1):
+        return
+    if (ord(event.char) == 27):
+        window_rem_acc.destroy()
 
-def secuure_accrem():
+def secuure_accrem(user_str):
 
     global window_rem_acc
+    global acc_user
+    acc_user = user_str
 
     bcolor = '#9ACAEE'
 
@@ -29,4 +35,21 @@ def secuure_accrem():
     window_rem_acc.title("Remove Account")
     window_rem_acc.bind('<Key>', key_rem_window)
 
+    data = getPasswordsForUser(acc_user)
+    button_websites = []
+    for info in data:
+        button_websites.append(tkinter.Button(window_rem_acc, text =
+            info[2], width = 8, command = (lambda u, w: delete_website_info(u,
+                w), info[0], info[2])))
+        button_websites[len(button_websites) - 1].grid(row =
+                len(button_websites) - 1, column = 0)
+    
+ 
+def delete_website_info(u, w):
+    global window_rem_acc
+    global acc_user
+
+    remove_entry(u, w)
+    window_rem_acc.destroy()
+    secuure_accrem(acc_user)
 
