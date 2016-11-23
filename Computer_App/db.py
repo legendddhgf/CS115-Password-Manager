@@ -131,12 +131,12 @@ def getPasswordsForUser(accountName):
 
 
 #Removes entry from the table, all values have to match
-def removeEntry(username, pw, website, notes):
+def removeEntry(username, website):
     try:
         global logged_user
         global logged_pw
         (conn, cursor) = createCon(logged_user, logged_pw)
-        query = """DELETE FROM DATA WHERE userid=%s && account='%s' && website='%s' && password='%s' && notes='%s'""" %(getUserIdForData(logged_user), username, website, pw, notes, )
+        query = """DELETE FROM DATA WHERE userid=%s && account='%s' && website='%s'""" %(getUserIdForData(logged_user), username, website, )
 
         print (query)
         cursor.execute(query)
@@ -159,7 +159,7 @@ addPassForWebsite("joking", "mypass3!!!21test", "gmail", "last")
 addPassForWebsite("joking", "mypass321test", "yahoo", "last")
 getPasswordsForUser("joking")
 print("After printing\n")
-removeEntry("joking", "mypass3!!!21test", "gmail", "last")
+removeEntry("joking", "gmail")
 getPasswordsForUser("joking")
 
 

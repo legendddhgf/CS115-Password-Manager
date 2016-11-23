@@ -23,12 +23,14 @@ def submit_account_add():
     global entry_user_pass
     global entry_user_website
     global entry_user_notes
+    global window_add_acc
     user_user = entry_user_user.get()
     user_pass = entry_user_pass.get()
     user_website = entry_user_website.get()
     user_notes = entry_user_notes.get()
 
-    addPassForWebsite(user_user, user_pass, user_website, user_notes)
+    if (addPassForWebsite(user_user, user_pass, user_website, user_notes)):
+        window_add_acc.destroy()
 
 def secuure_accadd():
     global entry_user_user
