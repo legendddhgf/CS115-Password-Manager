@@ -137,7 +137,7 @@ def removeEntry(username, pw, website, notes):
         global logged_user
         global logged_pw
         (conn, cursor) = createCon(logged_user, logged_pw)
-        query = """DELETE FROM DATA WHERE userid=%s && account='%s' && website='%s' && password='%s' && notes='%s'""" %(getUserIdForData(username), username, website, pw, notes, )
+        query = """DELETE FROM DATA WHERE userid=%s && account='%s' && website='%s' && password='%s' && notes='%s'""" %(getUserIdForData(logged_user), username, website, pw, notes, )
 
         print (query)
         cursor.execute(query)
