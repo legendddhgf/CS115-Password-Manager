@@ -1,0 +1,153 @@
+Documentation: db.py
+
+Global Variables:
+logged_user (initial value "None") - Keeps tracked of the logged in user in order to make connections to the database 
+logged_pw (initial value "None") - Keeps tracked of the logged in users password in order to make connections to the database
+
+Functions:
+
+addToUserTable(user, pw, fname, lname)
+
+Parameters: 
+user - datatype: string - use: Contains the user name of the user being added to the user database
+pw - datatype: string - use: Contains the password of the user being added to the database
+fname - datatype: string - use: Register information, input to user table (first name)
+lname - datatype: string - use: Register information, input to user table (last name)
+
+Function use:
+This function takes in the information from the register page on our application, all the inputs are then used to create a new user on the database. After the user is created, the function then provides permissions, and afterwards, creates the user table if it doesn't exist. The last operation the function does is insert the new data into the users table by calling "insertToUserTable()".
+
+Return values:
+True - All functions were executed properly
+False - An error occured when creating a user or granting permissions (this is usually due to a duplicate user being created)
+
+---
+
+getUserIdNum()
+
+Parameters:
+None
+
+Function use:
+This function is a helper function that will create a connection to the users table and select the highest ID number from the table. This is used when inserting new users to the table, because their userid number should be incremented by 1 in terms of the current highest number in the table.
+
+Return value:
+max_id - the highest number in the users table (id column)
+
+---
+
+getUserIdForData(username)
+
+Parameters:
+username - datatype: string - use: username of the id number we want to get from the users table
+
+Function use:
+This function is a helper function that will return a user's id number corresponding to their mysql username which was used to log into the application. 
+
+Return value:
+i - the ID number that corresponds to the username provided to the function
+
+---
+
+createPassTable()
+
+Parameters:
+None
+
+Function use:
+Creates the data table on the database if it isn't already created
+
+Return value: 
+None
+
+---
+
+insertToUserTable(fname, lname, user)
+
+Parameters:
+fname - datatype: string - use: The user's first name, register information which is an input to the database
+lname - datatype: string - use: The user's last name, register information which is an input to the database
+user - datatype: string - use: The user's username which will correspond to an ID number in the user table, this ID number will correspond to entries in the data table, and is an unique identifier
+
+Function use: 
+Queries the table, and inserts the corresponding values into the users table. Also checks for duplicate users as entries to the table
+
+Return Value:
+True: No duplicate users were added and no errors occured
+False: Duplicate account was found to be inserted into the table
+
+---
+
+verMasterLogin(login, login_pw)
+
+Parameters:
+login - datatype: string - use: mysql database username to log into the database
+login_pw - datatype: string - use: password corresponding to the username provided
+
+Function use:
+Tries to connect the database and return True or False depending on whether or not the connection was successful, this function allows the user to retrieve information if their login is valid. Also, sets global variables to create later connections to the database using the local user's information instead of the root user.
+
+Return Value:
+True: Connection was successful
+False: Connection wasn't successful.
+
+---
+
+createCon(user, pw)
+
+Parameters:
+user - datatype: string - use: username being used to log into the database with
+pw - datatype: string - use: password being used in conjunction with the username
+
+Function use:
+Attempts to create a connection to the database with the username and password provided to the function. If successful, returns the connection and a cursor object which points at the database
+
+Return values:
+(conn, cursor) - A tuple containing the connection to the database, and the cursor object created through the connection. Creating the cursor in this function removes repetition.
+Nothing - Returns nothing if the connection fails
+
+---
+
+addPassForWebsite(username, pw, website, notes)
+
+Parameters:
+username - datatype: string - use: username corresponding to the website the user wants to create on their password manager
+pw - datatype: string - use: password corresponding to the username and website the user wants to create on their password manager
+website - datatype: string - use: website corresponding to the account information (username, pw)
+notes - datatype: string - use: Allows the user to enter in extra notes about a specific account or website to remind them of pertinent information
+
+Function use:
+Inserts the corresponding parameter strings into the datatable. Information inserted will correspond to the logged in user's id number, which will be selected using the getUserIdForData() function that is documented above.
+
+Return values:
+True: All operations were performed successfully, and the data was inserted into the table
+False: A duplicate account name corresponding to the same website was created.
+
+---
+
+getPasswordsForUser(accountName)
+
+Parameters:
+accountName - datatype: string - use: username of the logged in user
+
+Function use: 
+Selects all rows in the database corresponding to the logged in user's id number. This information is then selected in a tuple, and appended into an array. The purpose of this is so that the front end module can take this information and list it accordingly.
+
+Return value:
+data - an array containing the following fields: (username, website, password, notes)
+
+---
+
+removeEntry(username, website)
+
+Parameters:
+username - datatype: string - use: username of selected entry to be removed
+website - datatype: string - use: website of entry to be deleted
+
+Function use:
+Removes an entry that is selected by the user
+
+Return value:
+True: Entry was successfully removed
+False: Error occurred when executing
+

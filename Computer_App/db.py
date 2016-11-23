@@ -145,25 +145,3 @@ def removeEntry(username, website):
         return True
     except mysql.connector.Error as e:
         return False
-
-
-
-#####################
-#      Testing      #
-#####################
-
-addToUserTable('joking','root', 'John', 'King')
-print(verMasterLogin('joking','root'))
-print("Before printing\n")
-addPassForWebsite("joking", "mypass3!!!21test", "gmail", "last")
-addPassForWebsite("joking", "mypass321test", "yahoo", "last")
-getPasswordsForUser("joking")
-print("After printing\n")
-removeEntry("joking", "gmail")
-getPasswordsForUser("joking")
-
-
-
-
-
-
