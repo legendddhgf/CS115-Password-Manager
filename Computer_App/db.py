@@ -2,7 +2,6 @@ import mysql.connector
 
 logged_user = None
 logged_pw = None
-
 #initalizes database if table doesn't already exist
 def addToUserTable(user, pw, fname, lname):
     (conn, cursor) = createCon('cs115','insecuurity')
@@ -105,7 +104,6 @@ def createCon(user, pw):
 def addPassForWebsite(username, pw, website, notes):
     global logged_user
     global logged_pw
-    print (logged_user, logged_pw)
     (conn, cursor) = createCon(logged_user, logged_pw)
     query = ("""SELECT account, website FROM data """)
     cursor.execute(query)
@@ -114,7 +112,7 @@ def addPassForWebsite(username, pw, website, notes):
             print("Duplicate entry in table, please try again")
             conn.close
             return
-    cursor.execute("""INSERT IGNORE INTO data values (%s, %s, %s, %s, %s)""", (getUserIdForData(username), username, website, pw, notes))
+    cursor.execute("""INSERT IGNORE INTO data values (%s, %s, %s, %s, %s)""", (getUserIdForData(logged_user), username, website, pw, notes))
     conn.commit()
     conn.close()
 
