@@ -122,6 +122,8 @@ def getPasswordsForUser(accountName):
     global logged_pw
     (conn, cursor) = createCon(logged_user, logged_pw)
     data = []
+    print(logged_user)
+    print(getUserIdForData(logged_user))
     query=("""SELECT account, password, website, notes FROM DATA WHERE userid=%s""" %getUserIdForData(logged_user))
     cursor.execute(query)
     for a, p, w, n in cursor:

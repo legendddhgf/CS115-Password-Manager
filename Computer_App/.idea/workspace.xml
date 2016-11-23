@@ -24,18 +24,28 @@
       <file leaf-file-name="db.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="124" column="113" selection-start-line="124" selection-start-column="113" selection-end-line="124" selection-end-column="113" />
+            <state relative-caret-position="358">
+              <caret line="125" column="39" selection-start-line="125" selection-start-column="39" selection-end-line="125" selection-end-column="39" />
               <folding>
-                <marker date="1479860599913" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
-                <marker date="1479860599913" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
-                <marker date="1479860599913" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
-                <marker date="1479860599913" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
-                <marker date="1479860599913" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
-                <marker date="1479860599913" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
-                <marker date="1479860599913" expanded="true" signature="4426:4490" ph="SELECT accou... DATA" />
-                <marker date="1479860599913" expanded="true" signature="4944:5039" ph="DELETE FROM " />
+                <marker date="1479860741189" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
+                <marker date="1479860741189" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
+                <marker date="1479860741189" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
+                <marker date="1479860741189" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
+                <marker date="1479860741189" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
+                <marker date="1479860741189" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
+                <marker date="1479860741189" expanded="true" signature="4490:4554" ph="SELECT accou... DATA" />
+                <marker date="1479860741189" expanded="true" signature="5008:5103" ph="DELETE FROM " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="secuure_gui_accinfo.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/secuure_gui_accinfo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -435,14 +445,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1479860599913" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
-            <marker date="1479860599913" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
-            <marker date="1479860599913" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
-            <marker date="1479860599913" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
-            <marker date="1479860599913" expanded="true" signature="4426:4490" ph="SELECT accou... DATA" />
-            <marker date="1479860599913" expanded="true" signature="4944:5039" ph="DELETE FROM " />
+            <marker date="1479860741189" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
+            <marker date="1479860741189" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
+            <marker date="1479860741189" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
+            <marker date="1479860741189" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
+            <marker date="1479860741189" expanded="true" signature="4490:4554" ph="SELECT accou... DATA" />
+            <marker date="1479860741189" expanded="true" signature="5008:5103" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -478,14 +488,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1479860599913" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
-            <marker date="1479860599913" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
-            <marker date="1479860599913" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
-            <marker date="1479860599913" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
-            <marker date="1479860599913" expanded="true" signature="4426:4490" ph="SELECT accou... DATA" />
-            <marker date="1479860599913" expanded="true" signature="4944:5039" ph="DELETE FROM " />
+            <marker date="1479860741189" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
+            <marker date="1479860741189" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
+            <marker date="1479860741189" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
+            <marker date="1479860741189" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
+            <marker date="1479860741189" expanded="true" signature="4490:4554" ph="SELECT accou... DATA" />
+            <marker date="1479860741189" expanded="true" signature="5008:5103" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -521,14 +531,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1479860599913" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
-            <marker date="1479860599913" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
-            <marker date="1479860599913" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
-            <marker date="1479860599913" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
-            <marker date="1479860599913" expanded="true" signature="4426:4490" ph="SELECT accou... DATA" />
-            <marker date="1479860599913" expanded="true" signature="4944:5039" ph="DELETE FROM " />
+            <marker date="1479860741189" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
+            <marker date="1479860741189" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
+            <marker date="1479860741189" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
+            <marker date="1479860741189" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
+            <marker date="1479860741189" expanded="true" signature="4490:4554" ph="SELECT accou... DATA" />
+            <marker date="1479860741189" expanded="true" signature="5008:5103" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -547,14 +557,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1479860599913" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
-            <marker date="1479860599913" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
-            <marker date="1479860599913" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
-            <marker date="1479860599913" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
-            <marker date="1479860599913" expanded="true" signature="4426:4490" ph="SELECT accou... DATA" />
-            <marker date="1479860599913" expanded="true" signature="4944:5039" ph="DELETE FROM " />
+            <marker date="1479860741189" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
+            <marker date="1479860741189" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
+            <marker date="1479860741189" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
+            <marker date="1479860741189" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
+            <marker date="1479860741189" expanded="true" signature="4490:4554" ph="SELECT accou... DATA" />
+            <marker date="1479860741189" expanded="true" signature="5008:5103" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -573,14 +583,14 @@
         <state relative-caret-position="204">
           <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
           <folding>
-            <marker date="1479860599913" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
-            <marker date="1479860599913" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
-            <marker date="1479860599913" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
-            <marker date="1479860599913" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
-            <marker date="1479860599913" expanded="true" signature="4426:4490" ph="SELECT accou... DATA" />
-            <marker date="1479860599913" expanded="true" signature="4944:5039" ph="DELETE FROM " />
+            <marker date="1479860741189" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
+            <marker date="1479860741189" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
+            <marker date="1479860741189" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
+            <marker date="1479860741189" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
+            <marker date="1479860741189" expanded="true" signature="4490:4554" ph="SELECT accou... DATA" />
+            <marker date="1479860741189" expanded="true" signature="5008:5103" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -599,14 +609,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1479860599913" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
-            <marker date="1479860599913" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
-            <marker date="1479860599913" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
-            <marker date="1479860599913" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
-            <marker date="1479860599913" expanded="true" signature="4426:4490" ph="SELECT accou... DATA" />
-            <marker date="1479860599913" expanded="true" signature="4944:5039" ph="DELETE FROM " />
+            <marker date="1479860741189" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
+            <marker date="1479860741189" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
+            <marker date="1479860741189" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
+            <marker date="1479860741189" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
+            <marker date="1479860741189" expanded="true" signature="4490:4554" ph="SELECT accou... DATA" />
+            <marker date="1479860741189" expanded="true" signature="5008:5103" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -625,14 +635,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1479860599913" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
-            <marker date="1479860599913" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
-            <marker date="1479860599913" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
-            <marker date="1479860599913" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
-            <marker date="1479860599913" expanded="true" signature="4426:4490" ph="SELECT accou... DATA" />
-            <marker date="1479860599913" expanded="true" signature="4944:5039" ph="DELETE FROM " />
+            <marker date="1479860741189" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
+            <marker date="1479860741189" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
+            <marker date="1479860741189" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
+            <marker date="1479860741189" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
+            <marker date="1479860741189" expanded="true" signature="4490:4554" ph="SELECT accou... DATA" />
+            <marker date="1479860741189" expanded="true" signature="5008:5103" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -651,14 +661,14 @@
         <state relative-caret-position="1887">
           <caret line="112" column="28" selection-start-line="112" selection-start-column="28" selection-end-line="112" selection-end-column="28" />
           <folding>
-            <marker date="1479860599913" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
-            <marker date="1479860599913" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
-            <marker date="1479860599913" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
-            <marker date="1479860599913" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
-            <marker date="1479860599913" expanded="true" signature="4426:4490" ph="SELECT accou... DATA" />
-            <marker date="1479860599913" expanded="true" signature="4944:5039" ph="DELETE FROM " />
+            <marker date="1479860741189" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
+            <marker date="1479860741189" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
+            <marker date="1479860741189" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
+            <marker date="1479860741189" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
+            <marker date="1479860741189" expanded="true" signature="4490:4554" ph="SELECT accou... DATA" />
+            <marker date="1479860741189" expanded="true" signature="5008:5103" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -677,14 +687,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1479860599913" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
-            <marker date="1479860599913" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
-            <marker date="1479860599913" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
-            <marker date="1479860599913" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
-            <marker date="1479860599913" expanded="true" signature="4426:4490" ph="SELECT accou... DATA" />
-            <marker date="1479860599913" expanded="true" signature="4944:5039" ph="DELETE FROM " />
+            <marker date="1479860741189" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
+            <marker date="1479860741189" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
+            <marker date="1479860741189" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
+            <marker date="1479860741189" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
+            <marker date="1479860741189" expanded="true" signature="4490:4554" ph="SELECT accou... DATA" />
+            <marker date="1479860741189" expanded="true" signature="5008:5103" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -695,14 +705,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1479860599913" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
-            <marker date="1479860599913" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
-            <marker date="1479860599913" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
-            <marker date="1479860599913" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
-            <marker date="1479860599913" expanded="true" signature="4426:4490" ph="SELECT accou... DATA" />
-            <marker date="1479860599913" expanded="true" signature="4944:5039" ph="DELETE FROM " />
+            <marker date="1479860741189" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
+            <marker date="1479860741189" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
+            <marker date="1479860741189" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
+            <marker date="1479860741189" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
+            <marker date="1479860741189" expanded="true" signature="4490:4554" ph="SELECT accou... DATA" />
+            <marker date="1479860741189" expanded="true" signature="5008:5103" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -756,19 +766,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/secuure_gui_accinfo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="124" column="113" selection-start-line="124" selection-start-column="113" selection-end-line="124" selection-end-column="113" />
+        <state relative-caret-position="358">
+          <caret line="125" column="39" selection-start-line="125" selection-start-column="39" selection-end-line="125" selection-end-column="39" />
           <folding>
-            <marker date="1479860599913" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
-            <marker date="1479860599913" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
-            <marker date="1479860599913" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
-            <marker date="1479860599913" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
-            <marker date="1479860599913" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
-            <marker date="1479860599913" expanded="true" signature="4426:4490" ph="SELECT accou... DATA" />
-            <marker date="1479860599913" expanded="true" signature="4944:5039" ph="DELETE FROM " />
+            <marker date="1479860741189" expanded="true" signature="633:792" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="1012:1032" ph="SELECT ID fr... users" />
+            <marker date="1479860741189" expanded="true" signature="1387:1437" ph="SELECT id, u... users" />
+            <marker date="1479860741189" expanded="true" signature="1625:1826" ph="CREATE TABLE... IF" />
+            <marker date="1479860741189" expanded="true" signature="2105:2131" ph="SELECT usern... users" />
+            <marker date="1479860741189" expanded="true" signature="3753:3786" ph="SELECT accou... data" />
+            <marker date="1479860741189" expanded="true" signature="4490:4554" ph="SELECT accou... DATA" />
+            <marker date="1479860741189" expanded="true" signature="5008:5103" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
