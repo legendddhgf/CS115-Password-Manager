@@ -45,7 +45,7 @@ def getUserIdForData(username):
     for i, u in cursor:
         return i
 
-
+#Creates the data table if it doesn't exist in the database
 def createPassTable():
     (conn, cursor) = createCon('cs115','insecuurity')
     cursor.execute("""CREATE TABLE IF NOT EXISTS data(
