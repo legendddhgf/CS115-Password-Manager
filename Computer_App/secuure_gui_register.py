@@ -30,7 +30,7 @@ def secuure_register():
     natheight = window_reg.winfo_screenheight()
  
     window_reg.configure(background = bcolor)
-    window_reg.geometry(("%dx%d") % (natwidth / 2,natheight / 2)) # start with a window
+    #window_reg.geometry(("%dx%d") % (natwidth / 2,natheight / 2)) # start with a window
     window_reg.title("Register Account")
     window_reg.bind('<Key>', map_reg_key)
 
@@ -90,7 +90,7 @@ def submit_account_registration():
         return
 
     if (field_confpass.get() != field_pass.get()):
-        messagebox.showerror("Account Registration Error", "Passwords" +
+        messagebox.showerror("Error", "Passwords" +
                 " do not match")
         return
             
@@ -109,6 +109,7 @@ def map_reg_key(event): # only called through register_account()
     global window_reg
     if (len(event.char) != 1):
         return
+    if (ord(event.char) == 10 or ord(event.char) == 13):
+        submit_account_registration()
     if (ord(event.char) == 27):
         window_reg.destroy()
-    return

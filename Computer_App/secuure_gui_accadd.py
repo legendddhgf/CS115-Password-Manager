@@ -6,11 +6,13 @@
 import tkinter
 from tkinter import messagebox
 from db import *
+from passgen import genPass
 
 entry_user_user = None
 entry_user_pass = None
 entry_user_notes = None
 entry_user_website = None
+slider_length = None
 window_add_acc = None
 acc_user = None
 
@@ -35,6 +37,12 @@ def submit_account_add():
     user_website = entry_user_website.get()
     user_notes = entry_user_notes.get()
 
+    if (len(user_user) == 0 or len(user_pass) == 0 or
+            len(user_website) == 0):
+        messagebox.showerror("Invalid Submission",
+            "All Fields other than notes must be filled")
+        return
+
     if (addPassForWebsite(user_user, user_pass, user_website, user_notes)):
         window_add_acc.destroy()
 
@@ -43,6 +51,7 @@ def secuure_accadd(user_str):
     global entry_user_pass
     global entry_user_website
     global entry_user_notes
+    global slider_length
     global window_add_acc
     global acc_user
 
@@ -80,29 +89,31 @@ def secuure_accadd(user_str):
 
     label_blank = tkinter.Label(window_add_acc, text = "", background = bcolor)
 
+    slider_length = tkinter.Scale(window_add_acc, from_ = 8, to = 20,
+            orient = tkinter.HORIZONTAL)
     var_caps = tkinter.IntVar()
     check_caps = tkinter.Checkbutton(window_add_acc,
-        text = "Require Capital Letters", variable = var_caps,
+        text = "Capitals", variable = var_caps,
         background = bcolor)
     label_blank1 = tkinter.Label(window_add_acc, text = "  ",
             background = bcolor) # spacing
     var_nums = tkinter.IntVar()
     check_nums = tkinter.Checkbutton(window_add_acc,
-        text = "Require Numbers", variable = var_nums,
+        text = "Nums", variable = var_nums,
         background = bcolor)
     label_blank2 = tkinter.Label(window_add_acc, text = "  ",
             background = bcolor) # spacing
     var_specs = tkinter.IntVar()
     check_specs = tkinter.Checkbutton(window_add_acc,
-        text = "Require Special Characters", variable = var_specs,
+        text = "Special Chars", variable = var_specs,
         background = bcolor)
 
     label_blank3 = tkinter.Label(window_add_acc, text = "  ",
             background = bcolor)
 
     button_gen_pass = tkinter.Button(window_add_acc,
-            text = "Generate Password", command = lambda:
-            newRandomPass(var_caps, var_nums, var_specs))
+            text = "Randomize", command = lambda:
+            newRandomPass(var_caps.get(), var_nums.get(), var_specs.get()))
 
     label_user_website.grid(row = 0, column = 0)
     label_user_user.grid(row = 1, column = 0)
@@ -113,13 +124,14 @@ def secuure_accadd(user_str):
     entry_user_user.grid(row = 1, column = 1)
     
     entry_user_pass.grid(row = 2, column = 1)
-    check_caps.grid(row = 2, column = 2)
-    label_blank1.grid(row = 2, column = 3)
-    check_nums.grid(row = 2, column = 4)
-    label_blank2.grid(row = 2, column = 5)
-    check_specs.grid(row = 2, column = 6)
-    label_blank3.grid(row = 2, column = 7)
-    button_gen_pass.grid(row = 2, column = 8)
+    slider_length.grid(row = 2, column = 2)
+    check_caps.grid(row = 2, column = 3)
+    label_blank1.grid(row = 2, column = 4)
+    check_nums.grid(row = 2, column = 5)
+    label_blank2.grid(row = 2, column = 6)
+    check_specs.grid(row = 2, column = 7)
+    label_blank3.grid(row = 2, column = 8)
+    button_gen_pass.grid(row = 2, column = 9)
 
     entry_user_notes.grid(row = 3, column = 1)
 
@@ -130,5 +142,13 @@ def secuure_accadd(user_str):
     return window_add_acc
 
 def newRandomPass(caps, nums, specs):
-    print("Caps %d, nums %d, specs %d", % (caps, nums, specs))
+    global entry_user_pass
+    global slider_length
+    #print ("Caps %d, nums %d, specs %d" % (caps, nums, specs))
+    length = slider_length.get()
+    str_pass = genPass(length, specs, caps, nums)
+    entry_user_pass.delete(0, len(entry_user_pass.get())) # delete previous
+                                                          # password
+    entry_user_pass.insert(0, str_pass) # replace with new password
+    print ("Entry: %s" % str_pass)
 

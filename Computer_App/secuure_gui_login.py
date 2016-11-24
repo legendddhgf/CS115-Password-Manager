@@ -34,7 +34,7 @@ def secuure_login():
     natwidth = root.winfo_screenwidth() # get native resolutions
     natheight = root.winfo_screenheight()
             
-    root.geometry(("%dx%d") % (natwidth / 2,natheight / 2)) # start with a window
+    #root.geometry(("%dx%d") % (natwidth / 2,natheight / 2)) # start with a window
                                                             # 1/4 the size of the
                                                             # screen
                 
