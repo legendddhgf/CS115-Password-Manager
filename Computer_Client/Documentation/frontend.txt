@@ -1,0 +1,82 @@
+The front end was built in tkinter due to its flexibility to operate on Windows,
+Linux, and Mac OS. The programming language used was python
+
+
+secuure_gui_login::
+
+This is the starting window from which all new windows are created.
+
+Error boxes open if you attempt to submit a login with empty fields or if you
+enter non-existent credentials.
+
+Clicking register will open a new window to allow you to add a master user and
+password. This utilizes the secuure_gui_register activity
+
+If login is successful, a window on account info will open. This window is
+handled by the secuure_gui_accinfo activity
+
+
+secuure_gui_register::
+
+This page contains 4 user input fields as well as a password confirmation field
+
+Error box opens if one attempts to submit with an empty field or conflicting
+password fields
+
+If the account exists, A message will be printed but no pop up will open. This
+was done on purpose to prevent the user from having to close a window everytime
+this occured.
+
+Once a valid combination of credentials is submitted, the account is created and
+the registration window closes
+
+
+secuure_gui_accinfo::
+
+This window shows a list of websites that the user has accounts saved
+for.
+
+You can click add to add a new website through the secuure_gui_accadd
+activity
+
+You can click remove to remove websites through the secuure_gui_accrem
+activity
+
+You can click refresh to refresh the list of websites that your account
+has
+
+Finally, you can click a website name to recieve information about your
+saved account for the site
+
+
+secuure_gui_accadd::
+
+In this activity you can add a username, password, and notes to an
+account listing for a website
+
+You can generate the password using special rules such as the need for
+capital letters, special characters, numbers and a length from 8 to 20
+
+Once a combination of credentials is valid, they are added and the
+window is destroyed. Make sure to refresh the info window afterwards
+
+
+secuure_gui_accrem::
+
+This window simply lists all the websites you own. Clicking one deletes
+it.
+
+secuure_gui_accwebinfo::
+
+This window shows all of the info for the website that you clicked on in
+the main info page.
+
+
+Important General notes::
+
+This frontend was designed with a focus for user experience as much as
+possible. It was made particularly difficult by how awful tkinter was.
+Aesthetics were absolutely horrible and difficult to nicely adjust. One
+thing that was really put emphasis on is the ability to use the escape
+key to exit a window as well as the enter key instead of a submit
+button.
