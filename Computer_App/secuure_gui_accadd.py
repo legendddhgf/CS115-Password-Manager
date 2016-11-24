@@ -151,4 +151,3 @@ def newRandomPass(caps, nums, specs):
                                                           # password
     entry_user_pass.insert(0, str_pass) # replace with new password
     print ("Entry: %s" % str_pass)
-
