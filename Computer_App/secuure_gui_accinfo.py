@@ -8,6 +8,7 @@ from tkinter import messagebox
 from db import *
 from secuure_gui_accadd import secuure_accadd
 from secuure_gui_accrem import secuure_accrem
+import atexit
 
 window_info = None
 acc_user = None
@@ -69,7 +70,7 @@ def secuure_accinfo(user_str):
         blank_labels[i].grid(row  = 0, column = space_start + i)
 
     button_add = tkinter.Button(window_info, text = "Add Account",
-        command = secuure_accadd)
+        command = add_but_cmd)
     button_remove = tkinter.Button(window_info,
         text = "Remove Account", command = rem_but_cmd)
     button_refresh = tkinter.Button(window_info,
@@ -79,8 +80,18 @@ def secuure_accinfo(user_str):
     button_remove.grid(row = 1, column = space_start + num_spaces)
     button_refresh.grid(row = 2, column = space_start + num_spaces)
 
+def add_but_cmd():
+    global acc_user
+    global window_info
+    #window_info.destroy()
+    win_temp = secuure_accadd(acc_user)
+    #win_temp.wm_protocol("WM_DELETE_WINDOW", secuure_accinfo(acc_user))
+
+
 def rem_but_cmd(): # because remove needs arguments
     global acc_user
+    global window_info
+    window_info.destroy()
     secuure_accrem(acc_user)
 
 def refresh_info():

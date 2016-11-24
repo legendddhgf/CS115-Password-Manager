@@ -156,5 +156,5 @@ def quit_prgrm(): # when you hit escape
     global root
     root.destroy()
 
-def donothing(self):
+def donothing():
     return

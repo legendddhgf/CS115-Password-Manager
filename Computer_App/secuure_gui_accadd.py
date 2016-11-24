@@ -12,9 +12,11 @@ entry_user_pass = None
 entry_user_notes = None
 entry_user_website = None
 window_add_acc = None
+acc_user = None
 
 def key_add_window(event):
     global window_add_acc
+    global acc_user
     if (len(event.char) == 1 and ord(event.char) == 27):
         window_add_acc.destroy()
 
@@ -32,12 +34,15 @@ def submit_account_add():
     if (addPassForWebsite(user_user, user_pass, user_website, user_notes)):
         window_add_acc.destroy()
 
-def secuure_accadd():
+def secuure_accadd(user_str):
     global entry_user_user
     global entry_user_pass
     global entry_user_website
     global entry_user_notes
     global window_add_acc
+    global acc_user
+
+    acc_user = user_str
 
     bcolor = '#9ACAEE'
 
@@ -85,4 +90,4 @@ def secuure_accadd():
 
     button_user_add.grid(row = 5, column = 1)
 
-
+    return window_add_acc
