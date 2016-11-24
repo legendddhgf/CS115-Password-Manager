@@ -94,8 +94,8 @@ def verMasterLogin(login, login_pw):
 def createCon(user, pw):
     try:
         conn = mysql.connector.connect(user=user, password=pw,
-                #host = '98.234.141.183',
-                host = '192.168.0.107',
+                host = '98.234.141.183',
+                #host = '192.168.0.107',
                 database='secuure') #isaak: 98.234.141.183
         cursor = conn.cursor()
         return (conn, cursor)
