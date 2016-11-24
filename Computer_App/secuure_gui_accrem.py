@@ -39,8 +39,8 @@ def secuure_accrem(user_str):
     button_websites = []
     for info in data:
         button_websites.append(tkinter.Button(window_rem_acc, text =
-            info[2], width = 8, command = (lambda u, w: delete_website_info(u,
-                w), info[0], info[2])))
+            info[2], width = 8, command =
+            (lambda: delete_website_info(info[0], info[2]))))
         button_websites[len(button_websites) - 1].grid(row =
                 len(button_websites) - 1, column = 0)
     
@@ -49,7 +49,7 @@ def delete_website_info(u, w):
     global window_rem_acc
     global acc_user
 
-    remove_entry(u, w)
+    removeEntry(u, w)
     window_rem_acc.destroy()
     secuure_accrem(acc_user)
 
