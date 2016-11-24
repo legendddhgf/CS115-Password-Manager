@@ -47,15 +47,18 @@ def getUserIdForData(username):
 
 #Creates the data table if it doesn't exist in the database
 def createPassTable():
-    (conn, cursor) = createCon('cs115','insecuurity')
-    cursor.execute("""CREATE TABLE IF NOT EXISTS data(
-                userid integer,
-                username text,
-                website text,
-                password text,
-                notes text
-                )""")
-    conn.close()
+    try:
+        (conn, cursor) = createCon('cs115','insecuurity')
+        cursor.execute("""CREATE TABLE IF NOT EXISTS data(
+                    userid integer,
+                    username text,
+                    website text,
+                    password text,
+                    notes text
+                    )""")
+        conn.close()
+    except:
+        raise SystemExit("Connection Error")
 
 #inserts into the "users" table.
 #Thing to note: table to be inserted into CANNOT be a variable (must be hardcoded)
@@ -90,7 +93,10 @@ def verMasterLogin(login, login_pw):
 #Creates connection to local MySQL database#  Passwords for accounts are no longer stored on the db
 def createCon(user, pw):
     try:
-        conn = mysql.connector.connect(user=user, password=pw, host = '98.234.141.183', database='secuure') #isaak: 98.234.141.183
+        conn = mysql.connector.connect(user=user, password=pw,
+                #host = '98.234.141.183',
+                host = '192.168.0.107',
+                database='secuure') #isaak: 98.234.141.183
         cursor = conn.cursor()
         return (conn, cursor)
     except mysql.connector.Error as e:

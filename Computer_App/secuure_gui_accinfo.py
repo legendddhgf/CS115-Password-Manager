@@ -91,7 +91,7 @@ def add_but_cmd():
 def rem_but_cmd(): # because remove needs arguments
     global acc_user
     global window_info
-    window_info.destroy()
+    #window_info.destroy()
     secuure_accrem(acc_user)
 
 def refresh_info():

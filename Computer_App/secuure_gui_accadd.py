@@ -17,7 +17,11 @@ acc_user = None
 def key_add_window(event):
     global window_add_acc
     global acc_user
-    if (len(event.char) == 1 and ord(event.char) == 27):
+    if (len(event.char) != 1):
+        return
+    if (ord(event.char) == 10 or ord(event.char) == 13): # enter key
+        submit_account_add()
+    if (ord(event.char) == 27):
         window_add_acc.destroy()
 
 def submit_account_add():
@@ -69,12 +73,36 @@ def secuure_accadd(user_str):
     entry_user_user = tkinter.Entry(window_add_acc)
     entry_user_pass = tkinter.Entry(window_add_acc, show = '*')
     entry_user_notes = tkinter.Entry(window_add_acc,
-            width = 40, relief = tkinter.GROOVE)
+            width = 30, relief = tkinter.GROOVE)
 
     button_user_add = tkinter.Button(window_add_acc, text = "Submit", command =
             submit_account_add)
 
     label_blank = tkinter.Label(window_add_acc, text = "", background = bcolor)
+
+    var_caps = tkinter.IntVar()
+    check_caps = tkinter.Checkbutton(window_add_acc,
+        text = "Require Capital Letters", variable = var_caps,
+        background = bcolor)
+    label_blank1 = tkinter.Label(window_add_acc, text = "  ",
+            background = bcolor) # spacing
+    var_nums = tkinter.IntVar()
+    check_nums = tkinter.Checkbutton(window_add_acc,
+        text = "Require Numbers", variable = var_nums,
+        background = bcolor)
+    label_blank2 = tkinter.Label(window_add_acc, text = "  ",
+            background = bcolor) # spacing
+    var_specs = tkinter.IntVar()
+    check_specs = tkinter.Checkbutton(window_add_acc,
+        text = "Require Special Characters", variable = var_specs,
+        background = bcolor)
+
+    label_blank3 = tkinter.Label(window_add_acc, text = "  ",
+            background = bcolor)
+
+    button_gen_pass = tkinter.Button(window_add_acc,
+            text = "Generate Password", command = lambda:
+            newRandomPass(var_caps, var_nums, var_specs))
 
     label_user_website.grid(row = 0, column = 0)
     label_user_user.grid(row = 1, column = 0)
@@ -83,7 +111,16 @@ def secuure_accadd(user_str):
 
     entry_user_website.grid(row = 0, column = 1)
     entry_user_user.grid(row = 1, column = 1)
+    
     entry_user_pass.grid(row = 2, column = 1)
+    check_caps.grid(row = 2, column = 2)
+    label_blank1.grid(row = 2, column = 3)
+    check_nums.grid(row = 2, column = 4)
+    label_blank2.grid(row = 2, column = 5)
+    check_specs.grid(row = 2, column = 6)
+    label_blank3.grid(row = 2, column = 7)
+    button_gen_pass.grid(row = 2, column = 8)
+
     entry_user_notes.grid(row = 3, column = 1)
 
     label_blank.grid(row = 4, column = 0)
@@ -91,3 +128,7 @@ def secuure_accadd(user_str):
     button_user_add.grid(row = 5, column = 1)
 
     return window_add_acc
+
+def newRandomPass(caps, nums, specs):
+    print("Caps %d, nums %d, specs %d", % (caps, nums, specs))
+
