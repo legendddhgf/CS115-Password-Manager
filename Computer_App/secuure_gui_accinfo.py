@@ -8,7 +8,7 @@ from tkinter import messagebox
 from db import *
 from secuure_gui_accadd import secuure_accadd
 from secuure_gui_accrem import secuure_accrem
-import atexit
+from secuure_gui_accwebinfo import secuure_accwebinfo
 
 window_info = None
 acc_user = None
@@ -30,35 +30,20 @@ def secuure_accinfo(user_str):
     window_info.bind('<Key>', map_list_account_info_key)
 
     #get accounts
-    list_accounts = {}
-    list_accounts["Admin"] = "Password"
-    label_usernames = []
-    label_passwords = []
+    button_usernames = []
 
     """ new """
     """"""
     data = getPasswordsForUser(acc_user)
     for info in data:
-        label_usernames.append(tkinter.Label(window_info, text =
-            info[0] + " : ", background = bcolor))
-        label_passwords.append(tkinter.Label(window_info, text =
-            info[1], background = bcolor))
+        button_usernames.append(tkinter.Button(window_info, text =
+            info[2], command =
+            lambda: secuure_accwebinfo(acc_user, info[2])))
     """"""
 
-    """ old """
-    """
-    for key in list_accounts:
-        label_usernames.append(tkinter.Label(window_info, text =
-            key + " : ", background = bcolor))
-        label_passwords.append(tkinter.Label(window_info, text =
-            list_accounts[key], background = bcolor))
-    """
-
-    for index in range(0, len(label_usernames)):
-        label_user = label_usernames[index]
-        label_pass = label_passwords[index]
-        label_user.grid(row = index, column = 0)
-        label_pass.grid(row = index, column = 1)
+    for index in range(0, len(button_usernames)):
+        button_user = button_usernames[index]
+        button_user.grid(row = index, column = 0)
 
     # need to do this for every button (add account, remove account, etc)
     blank_labels = [] # how to artificially make space

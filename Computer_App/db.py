@@ -57,7 +57,7 @@ def createPassTable():
                     notes text
                     )""")
         conn.close()
-    except mysql.connector.Error as e:
+    except:
         raise SystemExit("Connection Error")
 
 #inserts into the "users" table.

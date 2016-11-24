@@ -23,7 +23,10 @@ def secuure_accwebinfo(user_str, website_str):
     global acc_user
     acc_user = user_str
 
+    lcolor = '#FFFFFF'
+
     bcolor = '#9ACAEE'
+
 
     window_web_info = tkinter.Toplevel()
                 
@@ -32,8 +35,8 @@ def secuure_accwebinfo(user_str, website_str):
 
     window_web_info.configure(background = bcolor)
     window_web_info.geometry(("%dx%d") % (natwidth / 2,natheight / 2)) # start with a window
-    window_web_info.title("Info for ")
-    window_web_info.bind('<Key>', key_rem_window)
+    window_web_info.title("Info for " + website_str)
+    window_web_info.bind('<Key>', key_web_window)
 
     data = getPasswordsForUser(acc_user)
     label_website = None
@@ -44,17 +47,29 @@ def secuure_accwebinfo(user_str, website_str):
         if (info[2] != website_str):
             continue
         label_website = tkinter.Label(window_web_info, text =
-            info[2], width = 8, background = bcolor)
+                "Website: " + info[2], background = lcolor)
         label_user = tkinter.Label(window_web_info,
-                text = info[0], background = bcolor)
+                text = "Username: " + info[0], background = lcolor)
+        label_pass = tkinter.Label(window_web_info,
+                text = "Password: " + info[1], background = lcolor)
+        label_notes = tkinter.Label(window_web_info,
+                text = "Notes:\n\n" + info[3], background = lcolor,
+                height = 5)
         break
+
+    if (label_website is None):
+        window_web_info.destroy()
+        return
+
+    label_website.grid(row = 0, column = 0)
+    label_user.grid(row = 1, column = 0)
+    label_pass.grid(row = 2, column = 0)
+    label_notes.grid(row = 3, column = 0)
     
- 
+"""
 def update_website_info(u, w):
     global window_web_info
     global acc_user
 
     removeEntry(u, w)
-    window_web_info.destroy()
-    secuure_accrem(acc_user)
-
+"""
