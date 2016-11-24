@@ -100,9 +100,8 @@ def submit_account_registration():
     lname_str = field_lname.get()
             
     print ("Adding user '%s' with password '%s'" % (user_str, pass_str))
-    addToUserTable(user_str, pass_str, "fname", "lname")
-
-    window_reg.destroy()
+    if (addToUserTable(user_str, pass_str, "fname", "lname")):
+        window_reg.destroy()
 
             
 def map_reg_key(event): # only called through register_account()
