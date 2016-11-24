@@ -130,5 +130,4 @@ def secuure_accadd(user_str):
     return window_add_acc
 
 def newRandomPass(caps, nums, specs):
-    print("Caps %d, nums %d, specs %d", % (caps, nums, specs))
-
+    print("Caps %d, nums %d, specs %d" % (caps, nums, specs))
